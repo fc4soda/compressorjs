@@ -46,12 +46,14 @@
     </div>
   </header>
 
+  <div id="app" v-cloak>
+
   <div class="jumbotron bg-primary text-white rounded-0">
     <div class="container">
       <div class="row">
         <div class="col-md">
           <h1>Compressor.js <small class="h6">v1.2.1</small></h1>
-          <p class="lead">JavaScript image compressor.</p>
+          <p class="lead">{{ $t('description') }}</p>
         </div>
         <div class="col-md">
           <div class="carbonads">
@@ -63,75 +65,74 @@
   </div>
 
   <div class="container">
-    <h3>Playground</h3>
+    <h3>{{ $t('tooltip.playground') }}</h3>
     <hr>
-    <div id="app" v-cloak>
       <div class="card bg-light mb-4" @change="change" @dragover="dragover" @drop="drop">
         <div class="card-body">
-          <div class="p-5 text-center">Drop image here or <label class="text-primary">browse... <input type="file" class="sr-only" id="file" accept="image/*" ref="input"></label></div>
+          <div class="p-5 text-center">{{ $t('tooltip.dropImageHere') }}<label class="text-primary">{{ $t('tooltip.browse') }}<input type="file" class="sr-only" id="file" accept="image/*" ref="input"></label></div>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-4 mb-4">
           <div class="card h-100">
-            <h4 class="card-header">Options</h4>
+            <h4 class="card-header">{{ $t('tooltip.options') }}</h4>
             <div class="card-body">
               <fieldset class="form-group">
                 <div class="form-check form-check-inline">
                   <input type="checkbox" name="strict" class="form-check-input" id="inputStrict" v-model="options.strict">
-                  <label class="form-check-label" for="inputStrict">strict</label>
+                  <label class="form-check-label" for="inputStrict">{{ $t('tooltip.strict') }}</label>
                 </div>
               </fieldset>
               <fieldset class="form-group">
                 <div class="form-check form-check-inline">
                   <input type="checkbox" name="checkOrientation" class="form-check-input" id="inputCheckOrientation" v-model="options.checkOrientation">
-                  <label class="form-check-label" for="inputCheckOrientation">checkOrientation</label>
+                  <label class="form-check-label" for="inputCheckOrientation">{{ $t('tooltip.checkOrientation') }}</label>
                 </div>
               </fieldset>
               <fieldset class="form-group">
                 <div class="form-check form-check-inline">
                   <input type="checkbox" name="retainExif" class="form-check-input" id="inputRetainExif" v-model="options.retainExif">
-                  <label class="form-check-label" for="inputRetainExif">retainExif</label>
+                  <label class="form-check-label" for="inputRetainExif">{{ $t('tooltip.retainExif') }}</label>
                 </div>
               </fieldset>
               <div class="form-group row">
-                <label for="inputMaxWidth" class="col-5 col-form-label">maxWidth</label>
+                <label for="inputMaxWidth" class="col-5 col-form-label">{{ $t('tooltip.maxWidth') }}</label>
                 <div class="col-7">
                   <input type="number" name="maxWidth" class="form-control" id="inputMaxWidth" placeholder="Infinity" v-model.number="options.maxWidth">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputMaxHeight" class="col-5 col-form-label">maxHeight</label>
+                <label for="inputMaxHeight" class="col-5 col-form-label">{{$t('tooltip.maxHeight')}}</label>
                 <div class="col-7">
                   <input type="number" name="maxHeight" class="form-control" id="inputMaxHeight" placeholder="Infinity" v-model.number="options.maxHeight">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputMinWidth" class="col-5 col-form-label">minWidth</label>
+                <label for="inputMinWidth" class="col-5 col-form-label">{{$t('tooltip.minWidth')}}</label>
                 <div class="col-7">
                   <input type="number" name="minWidth" class="form-control" id="inputMinWidth" placeholder="0" v-model.number="options.minWidth">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputMinHeight" class="col-5 col-form-label">minHeight</label>
+                <label for="inputMinHeight" class="col-5 col-form-label">{{$t('tooltip.minHeight')}}</label>
                 <div class="col-7">
                   <input type="number" name="minHeight" class="form-control" id="inputMinHeight" placeholder="0" v-model.number="options.minHeight">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputWidth" class="col-5 col-form-label">width</label>
+                <label for="inputWidth" class="col-5 col-form-label">{{$t('tooltip.width')}}</label>
                 <div class="col-7">
                   <input type="number" name="width" class="form-control" id="inputWidth" placeholder="undefined" v-model.number="options.width">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputHeight" class="col-5 col-form-label">height</label>
+                <label for="inputHeight" class="col-5 col-form-label">{{$t('tooltip.height')}}</label>
                 <div class="col-7">
                   <input type="number" name="height" class="form-control" id="inputHeight" placeholder="undefined" v-model.number="options.height">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputResize" class="col-5 col-form-label">resize</label>
+                <label for="inputResize" class="col-5 col-form-label">{{$t('tooltip.resize')}}</label>
                 <div class="col-7">
                   <select class="form-control" name="resize" id="inputResize" v-model.number="options.resize">
                     <option value="none">none</option>
@@ -141,7 +142,7 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputQuality" class="col-5 col-form-label">quality</label>
+                <label for="inputQuality" class="col-5 col-form-label">{{$t('tooltip.quality')}}</label>
                 <div class="col-7">
                   <select class="form-control" name="quality" id="inputQuality" v-model.number="options.quality">
                     <option value="0">0</option>
@@ -160,19 +161,19 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputMimeType" class="col-5 col-form-label">mimeType</label>
+                <label for="inputMimeType" class="col-5 col-form-label">{{$t('tooltip.mimeType')}}</label>
                 <div class="col-7">
                   <input type="text" name="mimeType" class="form-control" id="inputMimeType" placeholder="auto" v-model.number="options.mimeType">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputConvertTypes" class="col-5 col-form-label">convertTypes</label>
+                <label for="inputConvertTypes" class="col-5 col-form-label">{{$t('tooltip.convertTypes')}}</label>
                 <div class="col-7">
                   <input type="text" name="convertTypes" class="form-control" id="inputConvertTypes" placeholder="image/png" v-model="options.convertTypes">
                 </div>
               </div>
               <div class="form-group row mb-0">
-                <label for="inputConvertSize" class="col-5 col-form-label">convertSize</label>
+                <label for="inputConvertSize" class="col-5 col-form-label">{{$t('tooltip.convertSize')}}</label>
                 <div class="col-7">
                   <input type="number" name="convertSize" class="form-control" id="inputConvertSize" placeholder="5000000" v-model.number="options.convertSize">
                 </div>
@@ -183,8 +184,8 @@
         <div class="col-lg-8 mb-4">
           <div class="card mb-4">
             <h5 class="card-header d-flex align-items-center justify-content-between">
-              <span>Input image <small class="text-secondary">(original image)</small></span>
-              <a class="btn btn-sm btn-blocks btn-outline-primary" :download="input.name" :href="inputURL" title="Download the compressed image">Download</a>
+              <span>{{$t('tooltip.inputImage')}} <small class="text-secondary">{{$t('tooltip.originalImage')}}</small></span>
+              <a class="btn btn-sm btn-blocks btn-outline-primary" :download="input.name" :href="inputURL" title="Download the compressed image">{{$t('tooltip.download')}}</a>
             </h5>
             <div class="card-body">
               <div class="row">
@@ -196,15 +197,15 @@
                 </div>
                 <div class="col-md-8">
                   <dl class="row">
-                    <dt class="col-5">lastModified:</dt>
+                    <dt class="col-5">{{$t('tooltip.lastModified')}}:</dt>
                     <dd class="col-7">{{ input.lastModified || 'N/A' }}</dd>
-                    <dt class="col-5">lastModifiedDate:</dt>
+                    <dt class="col-5">{{$t('tooltip.lastModifiedDate')}}:</dt>
                     <dd class="col-7">{{ input.lastModifiedDate || 'N/A' }}</dd>
-                    <dt class="col-5">name:</dt>
+                    <dt class="col-5">{{$t('tooltip.name')}}:</dt>
                     <dd class="col-7">{{ input.name || 'N/A' }}</dd>
-                    <dt class="col-5">type:</dt>
+                    <dt class="col-5">{{$t('tooltip.type')}}:</dt>
                     <dd class="col-7">{{ input.type || 'N/A' }}</dd>
-                    <dt class="col-5">size:</dt>
+                    <dt class="col-5">{{$t('tooltip.size')}}:</dt>
                     <dd class="col-7">{{ input.size | prettySize }}</dd>
                   </dl>
                 </div>
@@ -213,8 +214,8 @@
           </div>
           <div class="card">
             <h5 class="card-header d-flex align-items-center justify-content-between">
-              <span>Output image <small class="text-secondary">(compressed image)</small></span>
-              <a class="btn btn-sm btn-blocks btn-outline-primary" :download="output.name" :href="outputURL" title="Download the compressed image">Download</a>
+              <span>{{$t('tooltip.outputImage')}} <small class="text-secondary">{{$t('tooltip.compressedImage')}}</small></span>
+              <a class="btn btn-sm btn-blocks btn-outline-primary" :download="output.name" :href="outputURL" title="Download the compressed image">{{$t('tooltip.download')}}</a>
             </h5>
             <div class="card-body">
               <div class="row">
@@ -226,17 +227,17 @@
                 </div>
                 <div class="col-md-8">
                   <dl class="row">
-                    <dt class="col-5">lastModified:</dt>
+                    <dt class="col-5">{{$t('tooltip.lastModified')}}:</dt>
                     <dd class="col-7">{{ output.lastModified || 'N/A' }}</dd>
-                    <dt class="col-5">lastModifiedDate:</dt>
+                    <dt class="col-5">{{$t('tooltip.lastModifiedDate')}}:</dt>
                     <dd class="col-7">{{ output.lastModifiedDate || 'N/A' }}</dd>
-                    <dt class="col-5">name:</dt>
+                    <dt class="col-5">{{$t('tooltip.name')}}:</dt>
                     <dd class="col-7">{{ output.name || 'N/A' }}</dd>
-                    <dt class="col-5">type:</dt>
+                    <dt class="col-5">{{$t('tooltip.type')}}:</dt>
                     <dd class="col-7">{{ output.type || 'N/A' }}</dd>
-                    <dt class="col-5">size:</dt>
+                    <dt class="col-5">{{$t('tooltip.size')}}:</dt>
                     <dd class="col-7">{{ output.size | prettySize }}
-                      <span v-if="output.size">({{ ((1 - (output.size / input.size)) * 100).toFixed(2) }}% off)</span>
+                      <span v-if="output.size">({{ ((1 - (output.size / input.size)) * 100).toFixed(2) }}% {{$t('tooltip.off')}})</span>
                     </dd>
                   </dl>
                 </div>
@@ -246,13 +247,13 @@
         </div>
       </div>
       <div class="card" v-if="inputURL && outputURL">
-        <h4 class="card-header">Comparing images</h4>
+        <h4 class="card-header">{{$t('tooltip.comparingImages')}}</h4>
         <div class="card-body">
-          <vue-compare-image v-if="inputURL && outputURL" :left-image="inputURL" :left-image-alt="input.name" left-label="Input image" :right-image="outputURL" :right-image-alt="output.name" right-label="Output image"></vue-compare-image>
+          <vue-compare-image v-if="inputURL && outputURL" :left-image="inputURL" :left-image-alt="input.name" left-label="Input image" :right-image="outputURL" :right-image-alt="output.name" right-label="Output Image"></vue-compare-image>
         </div>
       </div>
-    </div>
   </div>
+</div>
 
   <footer class="footer">
     <div class="container">
@@ -268,7 +269,12 @@
 
   <script src="https://unpkg.com/jquery@3/dist/jquery.slim.min.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/bootstrap@4/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/vue@2/dist/vue.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue@2/dist/vue.js" crossorigin="anonymous"></script>
+  
+  <script src="https://unpkg.com/vue-i18n@8" crossorigin="anonymous"></script>
+
+  <!-- <script src="https://unpkg.com/vue-i18n@9.9.0/dist/vue-i18n.global.js" crossorigin="anonymous"></script> -->
+
   <script src="https://unpkg.com/vue-compare-image@0.2/dist/vueCompareImage.umd.min.js" crossorigin="anonymous"></script>
   <script src="https://fengyuanchen.github.io/shared/google-analytics.js" crossorigin="anonymous"></script>
   <script src="js/compressor.js"></script>

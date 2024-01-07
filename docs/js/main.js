@@ -6,13 +6,112 @@ window.addEventListener('DOMContentLoaded', function () {
 
   Vue.component('VueCompareImage', window.vueCompareImage);
 
+
+  const messages = {
+    en: {
+      message: {
+        hello: '{msg} world'
+      },
+      langs: {
+        cn: '简体中文',
+        en: 'English',
+      },
+      description: 'JavaScript image compressor.',
+      tooltip: {
+        dropImageHere: 'Drop image here or ',
+        browse: 'browse... ',
+        playground: 'Playground',
+        options: 'Options',
+        strict: 'strict',
+        checkOrientation: 'checkOrientation',
+        retainExif: 'retainExif',
+        maxWidth: 'maxWidth',
+        maxHeight: 'maxHeight',
+        minWidth: 'minWidth',
+        minHeight: 'minHeight',
+        width: 'width',
+        height: 'height',
+        resize: 'resize',
+        quality: 'quality',
+        mimeType: 'mimeType',
+        convertSize: 'convertSize',
+        convertTypes: 'convertTypes',
+        outputImage: 'Output image',
+        compressedImage: '(compressed image)',
+        download: 'Download',
+        lastModified: 'lastModified',
+        lastModifiedDate: 'lastModifiedDate',
+        name: 'name',
+        type: 'type',
+        size: 'size',
+        off: 'off',
+        comparingImages: 'Comparing images',
+        inputImage: 'Input image',
+        outputImage: 'Output image',
+        originalImage: '(original image)'
+      }
+    },
+    cn: {
+      message: {
+        hello: '{msg} 世界'
+      },
+      langs: {
+        cn: '简体中文',
+        en: 'English',
+      },
+      description: '图片压缩工具',
+      tooltip: {
+        dropImageHere: '拖动图片到此 或 ',
+        browse: '选择图片',
+        playground: '操作区',
+        options: '选项',
+        strict: '精确模式',
+        checkOrientation: '检查图片方向',
+        retainExif: '保留 Exif 信息',
+        maxWidth: '最大宽度',
+        maxHeight: '最大高度',
+        minWidth: '最小宽度',
+        minHeight: '最小高度',
+        width: '宽度',
+        height: '高度',
+        resize: '调整大小',
+        quality: '图像质量',
+        mimeType: 'mime 类型',
+        convertSize: '转换结果图片大小',
+        convertTypes: '转换结果图片类型',
+        outputImage: '转换结果图片',
+        compressedImage: '(压缩后的图片)',
+        download: '下载',
+        lastModified: '最后修改时间',
+        lastModifiedDate: '最后修改日期',
+        name: '图片文件名',
+        type: '图片格式',
+        size: '图片大小',
+        off: '压缩比例',
+        comparingImages: '比较转换前后图片',
+        inputImage: '转换前',
+        outputImage: '转换后',
+        originalImage: '(原始图片)'
+      }
+    },
+  }
+
+
+  const i18n = new VueI18n({
+		locale: 'cn',
+		fallbackLocale: 'en',
+		messages,
+	})
+
   new Vue({
+    i18n,
     el: '#app',
 
     data: function () {
       var vm = this;
 
       return {
+        messages: messages,
         options: {
           strict: true,
           checkOrientation: true,
@@ -86,11 +185,11 @@ window.addEventListener('DOMContentLoaded', function () {
         this.compress(e.target.files ? e.target.files[0] : null);
       },
 
-      dragover: function(e) {
+      dragover: function (e) {
         e.preventDefault();
       },
 
-      drop: function(e) {
+      drop: function (e) {
         e.preventDefault();
         this.compress(e.dataTransfer.files ? e.dataTransfer.files[0] : null);
       },
